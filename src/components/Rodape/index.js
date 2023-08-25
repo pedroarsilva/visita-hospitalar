@@ -4,8 +4,16 @@ import { ReactComponent as MarcaRegistrada } from '../../assets/marca_registrada
 export default function Rodape() {
   return (
     <footer className={styles.rodape}>
-      <MarcaRegistrada />
-      Desenvolvido por CactoCode
+      
+        <img className={styles.cactocode}
+          src='./assets/cacto_code.png' />
+      
+      
+        <MarcaRegistrada />
+
+      
+        Desenvolvido por CactoCode
+
     </footer>
   )
 }

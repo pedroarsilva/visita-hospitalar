@@ -7,4 +7,29 @@
   align-items: center;
   column-gap: .5rem;
   margin-top: 32px;
+  padding-bottom: 50px;
 }
+
+.cactocode {
+  position: absolute;
+  left: 0;
+  top: 860px;
+}
+
+img{
+  width: 128px;  
+}
+
+@media (max-width: 768px) {
+  img {
+    display: none;
+  }
+}
+
+@media (max-width: 425px) {
+  .rodape > img {
+    display: none;
+
+  }
+}
+
