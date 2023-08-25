@@ -10,39 +10,66 @@ import {
 } from '@mui/material';
 // import { DateTimePicker } from '@mui/x-date-pickers';
 function Formulario() {
+  let nome = '';
   return (
-    <form>
-      
+    <form className='form'>
+
+
       {/* <DateTimePicker label="readOnly" readOnly /> */}
-      <TextField id='Paciente' label='Paciente' variant='outlined' fullWidth margin='normal' />
-      <TextField id='Visitante' label='Visitante' variant='outlined' fullWidth margin='normal' />
-      <TextField id='cpf' label='CPF' variant='outlined' fullWidth margin='normal' />
-      <TextField id='Leito' label='Leito' variant='outlined' fullWidth margin='normal' />
+      <TextField
+        onChange={(event) => { console.log(event) }}
+        id='Paciente'
+        label='Paciente'
+        variant='outlined'
+        fullWidth margin='normal'
+      />
+      <TextField
+        id='Visitante'
+        label='Visitante'
+        variant='outlined'
+        fullWidth
+        margin='normal'
+      />
+      <TextField
+        id='cpf'
+        label='CPF'
+        variant='outlined'
+        fullWidth
+        margin='normal'
+      />
+      <TextField
+        id='Leito'
+        label='Leito'
+        variant='outlined'
+        fullWidth
+        margin='normal'
+      />
 
 
-      <FormControl>
-        <FormLabel>Visitante: </FormLabel>
+      <FormControl className='form__control'>
+        <FormLabel>O visitante será? </FormLabel>
         <FormGroup defaultChecked >
           <FormControlLabel control={
             <Switch name='Diurno' />
           }
-          label='Diurno'
+            label='Diurno'
           />
 
           <FormControlLabel control={
-            <Switch name='Noturno'/>
+            <Switch name='Noturno' />
           }
-          label='Noturno'
+            label='Noturno'
           />
+          <FormLabel>ou permanecerá como:</FormLabel>
 
           <FormControlLabel control={
-            <Switch name='Acompanhante'/>
+            <Switch name='Acompanhante' />
           }
-          label='Acompanhante'
+            label='Acompanhante'
           />
 
         </FormGroup>
-      <Button type='submit' variant='contained' color='primary'>Cadastrar</Button>
+        <Button type='submit' variant='contained' color='primary'>Cadastrar</Button>
       </FormControl>
 
 
