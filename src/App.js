@@ -11,11 +11,15 @@ function App() {
 
       <Container component="article" maxWidth="sm">
         <Typography variant='h3' align='center'>Registro de Visitas</Typography >
-        <Formulario />
+        <Formulario aoEnviar={aoEnviarForm}/>
       </Container>
         <Rodape />
     </div>
   );
+  function aoEnviarForm(dados) {
+    console.log(dados)
+  }
 }
+
 
 export default App;
