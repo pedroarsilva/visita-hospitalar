@@ -9,22 +9,22 @@ import {
   Switch
 } from '@mui/material';
 // import { DateTimePicker } from '@mui/x-date-pickers';
-function Formulario({aoEnviar}) {
+function Formulario({ aoEnviar, validarCPF }) {
   const [paciente, setPaciente] = useState("");
   const [visitante, setVisitante] = useState("");
   const [cpf, setCpf] = useState("");
   const [leito, setLeito] = useState("");
-  const [diurno, setDiurno] = useState(true);
-  const [noturno, setNoturno] = useState(true);
-  const [acompanhante, setAcompanhante] = useState(true);
-  const [erros, setErros] = useState({cpf:{valido:true, texto:""}})
+  const [diurno, setDiurno] = useState(false);
+  const [noturno, setNoturno] = useState(false);
+  const [acompanhante, setAcompanhante] = useState(false);
+  const [erros, setErros] = useState({ cpf: { valido: true, texto: "" } })
 
   return (
     <form
       className='form'
       onSubmit={(event) => {
         event.preventDefault();
-        aoEnviar({paciente, visitante, cpf, leito, diurno, noturno, acompanhante})
+        aoEnviar({ paciente, visitante, cpf, leito, diurno, noturno, acompanhante })
         setPaciente('');
         setVisitante('');
         setCpf('');
@@ -59,15 +59,18 @@ function Formulario({aoEnviar}) {
         margin='normal'
       />
       <TextField
-        onBlur={(event) => {
-          setErros({cpf:{valido:false, texto: "CPF precisa ter 11 dígicos!"}})
-        }}
-        error={!erros.cpf.valido}
-        helperText={erros.cpf.texto}
         value={cpf}
         onChange={(event) => {
-          setCpf(event.target.value)
+          setCpf(event.target.value);
         }}
+
+        onBlur={(event) => {
+          const ehValido = validarCPF(cpf);
+          setErros({ cpf: ehValido })
+        }}
+
+        error={!erros.cpf.valido}
+        helperText={erros.cpf.texto}
         id='CPF'
         label='CPF'
         variant='outlined'
